@@ -1,0 +1,66 @@
+/* pages/collection/collection.wxss */
+#content-container {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 每一个wrap-each容器 */
+.wrap-each {
+    width: 650rpx;
+    /* height: 300rpx; */
+    background-color: #ffffff;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 3rpx;
+    padding:20rpx;
+    margin: 10rpx;
+    align-self: center;
+    
+}
+
+/* 灰色虚线 */
+.splite-line-dashed {
+    height: 1px;
+    border: none;
+    border-top:1px dashed  #E0E3DA;
+    margin-top: 10rpx;
+    margin-bottom: 10rpx;
+}
+
+.wrap .content{
+    padding: 15rpx;
+    
+}
+
+.content-view{
+    text-align: justify;
+    /* text-align-last: justify; */
+}
+
+.content-text {
+    font-size: 20px;
+    color: #535353;
+}
+
+
+.author-wrap {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 20rpx;
+    color: #535353;
+}
+.button-wrap {
+    display: flex;
+    margin: 20rpx;
+}
+button {
+    width: 300rpx !important;
+
+}
+.enpty {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center; 
+}

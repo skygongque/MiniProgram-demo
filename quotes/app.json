@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/randomquote/randomquote",
+    "pages/quote/quote",
+    "pages/detail/detail",
+    "pages/collection/collection"
+
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/randomquote/randomquote",
+      "text": "随机",
+      "iconPath": "icons/random.png",
+      "selectedIconPath": "icons/random_.png"
+    },
+    {
+      "pagePath": "pages/quote/quote",
+      "text": "全部",
+      "iconPath": "icons/all.png",
+      "selectedIconPath": "icons/all_.png"
+    },
+    {
+      "pagePath": "pages/collection/collection",
+      "text": "收藏",
+      "iconPath": "icons/collection.png",
+      "selectedIconPath": "icons/collection_.png"
+    }
+  ]
+  }
+  
+}

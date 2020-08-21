@@ -1,0 +1,20 @@
+<!--pages/detail/detail.wxml-->
+<view id="content-container">
+<!-- 卡片开始 -->
+    <view class="wrap-each" wx:if="{{oneQuotefromDB}}">
+        <view class="content">
+            <view class="num-wrap">
+                <text class="num">Num {{oneQuotefromDB.index}}</text>
+            <view class="splite-line-dashed"></view>
+            </view>
+            <view class="content-view">
+                <text class="content-text">{{ oneQuotefromDB.content}}</text>
+            </view>
+            <view class="author-wrap">
+                <text class="author-text"> —— {{oneQuotefromDB.author}}</text>
+            </view>
+        </view>
+    </view>
+<!-- 卡片结束 -->
+</view>
+<button class="copyBtn" wx:if="{{canIUseClipboard}}" bindtap="copyText">复制</button>

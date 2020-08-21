@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "navigationBarTitleText":"随机名言",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

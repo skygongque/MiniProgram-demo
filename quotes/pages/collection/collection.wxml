@@ -1,0 +1,23 @@
+<!--pages/collection/collection.wxml-->
+<view class="enpty" wx:if="{{quotesfromDB.length===0}}">收藏夹空空如也</view>
+<view id="content-container">
+<!-- 卡片开始 -->
+    <view class="wrap-each" wx:for="{{quotesfromDB}}" wx:key="_id">
+        <view class="content">
+            <view class="num-wrap">
+                <text class="num">Num {{item.index}}</text>
+            <view class="splite-line-dashed"></view>
+            </view>
+            <view class="content-view">
+                <text class="content-text">{{ item.content}}</text>
+            </view>
+            <view class="author-wrap">
+                <text class="author-text"> —— {{item.author}}</text>
+            </view>
+            <view class="button-wrap">
+            <button class="cancelCollect" bindtap="cancelCollect" id="{{item._id}}">取消收藏</button>
+            <button class="copyText" id="{{item.content}} —— {{item.author}}" bindtap="copyText">复制</button></view>
+        </view>
+    </view>
+<!-- 卡片结束 -->
+</view>

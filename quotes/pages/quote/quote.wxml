@@ -1,0 +1,20 @@
+<!-- pages/quote/quote.wxml -->
+<view id="content-container">
+<!-- 卡片开始 -->
+    <view class="wrap-each" wx:for="{{quotesfromDB}}" wx:key="_id">
+        <navigator url="/pages/detail/detail?id={{item._id}}" class="content">
+            <view class="num-wrap">
+                <text class="num">Num {{item.index}}</text>
+            <view class="splite-line-dashed"></view>
+            </view>
+            <view class="content-view">
+                <text class="content-text">{{ item.content}}</text>
+            </view>
+            <view class="author-wrap">
+                <text class="author-text"> —— {{item.author}}</text>
+            </view>
+        </navigator>
+    </view>
+<!-- 卡片结束 -->
+</view>
+<button bindtap='nextPage'>加载更多</button>
