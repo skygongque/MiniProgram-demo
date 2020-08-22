@@ -59,7 +59,7 @@ button {
     width: 300rpx !important;
 
 }
-.enpty {
+.empty {
     display: flex;
     /* align-items: center; */
     justify-content: center; 

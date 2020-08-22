@@ -1,5 +1,8 @@
 <!-- pages/randomquote/randomquote.wxml -->
 <view id="content-container">
+<view class="empty" wx:if="{{quotesfromDB.length===0}}">正在加载中  请稍后...</view>
+<view class="empty" wx:if="{{quotesfromDB.length===0}}">提示：下拉或点击Another下一条</view>
+<view class="empty" wx:if="{{quotesfromDB.length===0}}">提示：点击Collect收藏</view>
     <!-- 卡片开始 -->
     <view class="wrap-each" wx:for="{{quotesfromDB}}" wx:key="_id">
         <view class="content">
@@ -17,7 +20,7 @@
     </view>
     <!-- 卡片结束 -->
 </view>
-<view class="button-wrap">
+<view class="button-wrap" wx:if="{{quotesfromDB.length!==0}}">
     <button class="another-but" bindtap="getAnother">Another</button>
     <button class="getOpenID" bindtap="collectMain">Collect</button>
     <button class="copyBtn" wx:if="{{canIUseClipboard}}" bindtap="copyText">Copy</button>

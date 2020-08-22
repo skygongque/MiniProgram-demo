@@ -1,5 +1,5 @@
 <!--pages/collection/collection.wxml-->
-<view class="enpty" wx:if="{{quotesfromDB.length===0}}">收藏夹空空如也</view>
+<view class="empty" wx:if="{{quotesfromDB.length===0}}">收藏夹空空如也</view>
 <view id="content-container">
 <!-- 卡片开始 -->
     <view class="wrap-each" wx:for="{{quotesfromDB}}" wx:key="_id">

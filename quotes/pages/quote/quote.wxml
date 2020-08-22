@@ -1,5 +1,6 @@
 <!-- pages/quote/quote.wxml -->
 <view id="content-container">
+
 <!-- 卡片开始 -->
     <view class="wrap-each" wx:for="{{quotesfromDB}}" wx:key="_id">
         <navigator url="/pages/detail/detail?id={{item._id}}" class="content">
