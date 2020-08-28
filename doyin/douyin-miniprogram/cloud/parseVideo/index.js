@@ -9,6 +9,7 @@ cloud.init('mike-52kvs');
 
 
 function requestNotRedirect(url) {
+    /* 请求url并不允许重定向 */
     return new Promise((resolve, reject) => {
         var options = {
             uri: url,
@@ -82,7 +83,7 @@ async function parse(res_json) {
         var paly_address = playwm.replace('playwm', 'play')
         var cover = res_json['item_list'][0]['video']['origin_cover']['url_list'][0];
         for (var i = 1; i < 6; i++) {
-            try_count+=1;
+            try_count += 1;
             var realAddress = await getRealAddress(paly_address);
             if (realAddress.search(/v\d+\-dy\.ixigua\.com/g) !== -1) {
                 tested = true;
@@ -93,7 +94,7 @@ async function parse(res_json) {
         }
         return {
             'code': 1,
-            'tryCount':try_count,
+            'tryCount': try_count,
             'tested': tested,
             'playAddress': realAddress,
             'cover': cover

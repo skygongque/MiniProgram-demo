@@ -1,6 +1,7 @@
 // pages/parse/parse.js
 // import {util} from "../../utils/util.js"
 const DownloadSaveFile = require('../../utils/util.js');
+import {downLoadVideo} from "../../utils/download.js";
 
 Page({
 
@@ -20,26 +21,26 @@ Page({
   onLoad: function (options) {
     // this.parse('https://v.douyin.com/Jr3YU9y/');
   },
-  getInputValue(e){
+  getInputValue:function(e){
     const value = e.detail.value;
     this.setData({
       url:value
     })
   },
-  verifyAndRequest(){
+  verifyAndRequest:function(){
     var url = this.data.url;
     // console.log(url);
     var pattern = new RegExp("(https{0,1}://.*?douyin\.com\/[a-zA-Z0-9]+)");
     if (pattern.test(url)){
       this.parse(RegExp.$1)
     }else{
-      console.log("请输入正确的url")
+      console.log("输入正确的url")
       wx.showToast({
-        title: '请输入正确的url',
+        title: '输入url错误',
       })
     }
   },
-  parse(url) {
+  parse: function(url) {
     var that = this;
     wx.cloud.callFunction({
       name: "parseVideo",
@@ -51,16 +52,7 @@ Page({
         that.setData({
           result: res.result
         })
-        // let tempAddress = res.result.playAddress;
-        // // var pattern_myhost = new RegExp("v\d+\-dy\.ixigua\.com");
-        // // console.log("testing",tempAddress);
-        // if (tempAddress.search(/v\d+\-dy\.ixigua\.com/g) !== -1){
-        //   that.setData({
-        //     tested:true
-        //   })
-        // }
-      }
-      ,
+      },
       fail(err) {
         console.log("云函数获取数据失败", err)
       }
@@ -84,8 +76,8 @@ Page({
     var tempUrl = this.data.result.playAddress;
     tempUrl = tempUrl.replace('http',"https");
     console.log(tempUrl);
-    DownloadSaveFile.downloadFile("video",tempUrl)
-    // util.downloadFile("video",this.data.result.playAddress)
+    downLoadVideo(tempUrl);
+    // DownloadSaveFile.downloadFile("video",tempUrl)
   },
   clearText: function(){
     this.setData({
