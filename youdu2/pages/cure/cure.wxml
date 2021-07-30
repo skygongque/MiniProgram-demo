@@ -1,0 +1,19 @@
+<!-- pages/quote/quote.wxml -->
+<view id="content-container">
+    <!-- 卡片开始 -->
+    <view class="wrap-each" wx:for="{{soupfromDB}}" wx:key="_id">
+        <view class="content">
+            <view class="num-wrap">
+                <text class="num">Num {{item.index}}</text>
+                <view class="splite-line-dashed"></view>
+            </view>
+            <view class="content-view">
+                <text class="content-text">{{ item.content}}</text>
+            </view>
+            <view class="author-wrap">
+                <text class="author-text">—— {{item.userName}}</text>
+            </view>
+        </view>
+    </view>
+    <!-- 卡片结束 -->
+</view>

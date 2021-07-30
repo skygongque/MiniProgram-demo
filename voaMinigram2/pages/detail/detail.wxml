@@ -1,0 +1,68 @@
+<view class="menu">
+    <view class="icon" bindtap="handleFontSizeUp" ><icon class="fontSizeUp" ></icon></view>
+    <view class="icon" bindtap="handleFontSizeDown" ><icon class="fontSizeDown" ></icon></view>
+    <view class="icon" bindtap="switchToCh" wx:if="{{showLanguage=='English'}}"><icon class="showEnOnly" ></icon></view>
+    <view class="icon" bindtap="switchToEnCh" wx:if="{{showLanguage=='Chinese'}}"><icon  class="showChOnly" ></icon></view>
+    <view class="icon" bindtap="switchToEn" wx:if="{{showLanguage=='En-Ch'}}"><icon  class="showEn-Ch" ></icon></view>
+</view>
+<view class="audio-wrap">
+    <view class="paly icon-wrap" wx:if="{{isplay==false}}" bindtap='play'>
+        <icon class="play-icon" />
+    </view>
+    <view class="pause icon-wrap" wx:if="{{isplay==true}}" bindtap='pause'>
+        <icon class="pause-icon" />
+    </view>
+    <view class="mp-slider">
+        <slider class="mp-slider-bar" block-size="12" value="{{myAudioPos}}" bindchange="hanle_slider_change"></slider>
+        <view class="playTime">
+            <view class="current-time showTime">{{myAudioCurrent}}</view>
+            <view class="duration-time showTime">{{myAudioDuration}}</view>
+        </view>
+        <view wx:if="{{error}}">音频播放出错！</view>
+    </view>
+</view>
+<view class="head-wrap">
+    <view class="title">{{detail.title}}</view>
+    <view class="author_time">
+        <view class="author grey">{{detail.category}}</view>
+        <view class="create_time grey">{{detail.create_date}}</view>
+    </view>
+    <image class="cover_img" src="{{detail.cover_img}}" mode="widthFix"></image>
+</view>
+<view class="content-wrap">
+    <view class="content" wx:for="{{contentList}}">
+        <view class="p" wx:if="{{item.nodes[0].tag==='#text'}}">
+            <text wx:if="{{showLanguage=='English' || showLanguage=='En-Ch'}}" selectable="{{true}}" style="font-size:{{contentFontSize}}rpx;">
+                {{item.nodes[0].text}}
+            </text>
+        </view>
+        <view class="c" wx:if="{{item.nodes[0].tag==='span'}}">
+            <text wx:if="{{showLanguage=='Chinese' || showLanguage=='En-Ch'}}" selectable="{{true}}" style="font-size:{{contentFontSize}}rpx;">
+                {{item.nodes[0].nodes[0].text}}
+            </text>
+        </view>
+    </view>
+</view>
+<!-- 模板 -->
+<!-- <view class="head-wrap">
+    <view class="title">特朗普向州长施压要求重开学校</view>
+    <view class="author_time">
+        <view class="author grey">VOA常速听力</view>
+        <view class="create_time grey">2020-08-25</view>
+    </view>
+    <image class="cover_img" src="https://img.congxue.com/articles/voa/standard/1596211924_g34ddk3m.jpg" mode="widthFix"></image>
+</view>
+<view class="content">
+    <view class="p">
+        In the state of New Hampshire, a school using ski lifts for a graduation ceremony,to help maintain social distancing, just one of the creative measures American schools have taken during the pandemic.But beyond pomp and circumstance American schools may soon reopen for a new school year.President Trump is demanding that it happen on time in August or September.We're very much going to put pressure on governors and everybody else to open the schools.Schools are part of the president's larger plan to resume normal economic function,as he eyes his re-election bid in November.Children back in school would allow parents to go back to their workplaces.The more than 50 million children who attend school in the US did so online,after the pandemic hit and before their summer vacations.The American academy of pediatrics has recommended they return to school in some form,to keep them from falling behind.A recommendation supported by infectious disease experts.Most of us agree that we have to open up our schools again this fall.But we'll see exactly how to do it.Doing it carefully is very important.
+    </view>
+    <view class="c">
+        在新罕布什尔州，一所学校利用滑雪缆车举行毕业典礼，以帮助保持社交距离，这是美国学校在疫情期间采取的创造性措施之一。但是除了这一空前的盛况之外，美国学校很快就要重新开学，开启新的学年。特朗普总统要求在8月或9月准时开学。我们将对州长和其他人施压，要求他们开学。学校是总统恢复正常经济功能的宏伟计划的一部分，因为他预计将在十一月进行连任竞选。孩子们返回学校也会让父母们重返工作岗位。在美国，超过五千万的儿童在疫情期间以及暑假之前上网课。美国儿科学会建议他们以某种形式重返学校，以防止落后。传染病专家们也支持这个建议。我们大多数人都同意今年秋天必须重新开放学校。但我们要看看如何实行。一定要谨慎做这件事。
+    </view>
+    <view class="p">
+        In the state of New Hampshire, a school using ski lifts for a graduation ceremony,to help maintain social distancing, just one of the creative measures American schools have taken during the pandemic.But beyond pomp and circumstance American schools may soon reopen for a new school year.President Trump is demanding that it happen on time in August or September.We're very much going to put pressure on governors and everybody else to open the schools.Schools are part of the president's larger plan to resume normal economic function,as he eyes his re-election bid in November.Children back in school would allow parents to go back to their workplaces.The more than 50 million children who attend school in the US did so online,after the pandemic hit and before their summer vacations.The American academy of pediatrics has recommended they return to school in some form,to keep them from falling behind.A recommendation supported by infectious disease experts.Most of us agree that we have to open up our schools again this fall.But we'll see exactly how to do it.Doing it carefully is very important.
+    </view>
+    <view class="c">
+        在新罕布什尔州，一所学校利用滑雪缆车举行毕业典礼，以帮助保持社交距离，这是美国学校在疫情期间采取的创造性措施之一。但是除了这一空前的盛况之外，美国学校很快就要重新开学，开启新的学年。特朗普总统要求在8月或9月准时开学。我们将对州长和其他人施压，要求他们开学。学校是总统恢复正常经济功能的宏伟计划的一部分，因为他预计将在十一月进行连任竞选。孩子们返回学校也会让父母们重返工作岗位。在美国，超过五千万的儿童在疫情期间以及暑假之前上网课。美国儿科学会建议他们以某种形式重返学校，以防止落后。传染病专家们也支持这个建议。我们大多数人都同意今年秋天必须重新开放学校。但我们要看看如何实行。一定要谨慎做这件事。
+    </view>
+</view> -->

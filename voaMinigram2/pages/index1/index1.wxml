@@ -1,0 +1,26 @@
+<!-- pages/index1/index1.wxml -->
+<navigator url="/pages/detail/detail?id={{item.id}}" class="card" wx:if="{{item.id}}" wx:for="{{dataList}}" wx:key="id">
+    <view class="title">{{item.title}}</view>
+    <view class="author_time">
+        <view class="author grey">{{item.author}}</view>
+        <view class="create_time grey">{{item.create_date}}</view>
+    </view>
+    <view class="digest_image">
+        <view class="digest">{{item.digest}}</view>
+        <image class="cover" mode="widthFix" src="{{item.cover_img}}" />
+    </view>
+</navigator>
+<!-- 模板 -->
+<!-- <view class="card">
+    <view class="title">白俄罗斯大选争议</view>
+    <view class="author_time">
+        <view class="author grey">VOA常速听力</view>
+        <view class="create_time grey">2020-08-25</view>
+    </view>
+    <view class="digest_image">
+        <view class="digest">
+            Next, an editorial reflecting the views of the United States government.Long-time President of Belarus Alexander Lukashe...
+        </view>
+        <image class="cover" mode="widthFix" src="https://img.congxue.com/articles/voa/standard/1598285524_yds2hfbe.jpg" />
+    </view>
+</view> -->

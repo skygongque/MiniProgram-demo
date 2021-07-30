@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/quote/quote",
+    "pages/cure/cure"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/quote/quote",
+        "text": "毒鸡汤",
+        "iconPath": "icons/posion_.png",
+        "selectedIconPath": "icons/posion.png"
+      },
+      {
+        "pagePath": "pages/cure/cure",
+        "text": "治愈",
+        "iconPath": "icons/warm_.png",
+        "selectedIconPath": "icons/warm.png"
+      }
+    ]
+  }
+}
